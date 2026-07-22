@@ -6,6 +6,7 @@ import pandas as pd
 from google.oauth2 import id_token as google_id_token
 from google.auth.transport import requests
 from google.oauth2.service_account import Credentials
+import streamlit as st
 from datetime import time, datetime, timedelta
 import time as pytime
 
@@ -347,7 +348,9 @@ def connect_gsheet():
         "https://www.googleapis.com/auth/spreadsheets",
         "https://www.googleapis.com/auth/drive"
     ]
-    creds = Credentials.from_service_account_file("key.json", scopes=scope)
+    creds = Credentials.from_service_account_info(
+    st.secrets["gcp_service_account"],
+    scopes=scope)
     return gspread.authorize(creds)
 
 @st.cache_data(ttl=60, show_spinner="Loading timetable...")
