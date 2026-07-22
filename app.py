@@ -42,7 +42,7 @@ if "token" not in st.session_state:
 
     result = oauth2.authorize_button(
         name="Login with Work Email",
-        redirect_uri="http://localhost:8501",
+        redirect_uri="https://slotsync.streamlit.app/component/streamlit_oauth.authorize_button/index.html",
         scope="openid email profile",
         key="google",
     )
