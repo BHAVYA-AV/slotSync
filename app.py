@@ -18,11 +18,8 @@ st.set_page_config(layout="wide")
 # =========================
 # GOOGLE OAUTH SETUP
 # =========================
-with open("client_secret.json") as f:
-    google_secrets = json.load(f)
-
-CLIENT_ID = google_secrets["web"]["client_id"]
-CLIENT_SECRET = google_secrets["web"]["client_secret"]
+CLIENT_ID = st.secrets["google_oauth"]["client_id"]
+CLIENT_SECRET = st.secrets["google_oauth"]["client_secret"]
 
 AUTHORIZE_URL = "https://accounts.google.com/o/oauth2/v2/auth"
 TOKEN_URL = "https://oauth2.googleapis.com/token"
